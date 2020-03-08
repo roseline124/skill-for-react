@@ -1,8 +1,8 @@
 import React from 'react'
-import Counter from './components/Counter'
+import EventHandler from './components/EventHandler'
 
 function App() {
-	return <Counter />
+	return <EventHandler />
 }
 
 export default App
