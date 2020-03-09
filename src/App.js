@@ -1,8 +1,17 @@
-import React from 'react'
-import EventHandler from './components/EventHandler'
+import React, { useRef } from 'react'
+import InputBox from './components/InputBox'
 
 function App() {
-	return <EventHandler />
+	const inputBox = useRef(null)
+	const handleClick = () => inputBox.current.focus()
+
+	return (
+		<div>
+			<InputBox innerRef={inputBox} />
+
+			<button onClick={handleClick}>focus</button>
+		</div>
+	)
 }
 
 export default App
