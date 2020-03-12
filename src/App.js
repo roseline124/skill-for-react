@@ -3,6 +3,8 @@ import InputBox from './components/InputBox'
 import Counter from './components/Counter'
 import Calculator from './components/Calculator'
 
+const Divider = () => <hr style={{ margin: '30px 0' }} />
+
 function App() {
   const inputBox = useRef(null)
   const handleClick = () => inputBox.current.focus()
@@ -12,10 +14,10 @@ function App() {
       <h1>Hooks</h1>
 
       <Counter />
-      <hr style={{ margin: '30px 0' }} />
+      <Divider />
 
       <Calculator />
-      <hr style={{ margin: '30px 0' }} />
+      <Divider />
 
       <InputBox innerRef={inputBox} />
       <button onClick={handleClick}>focus</button>
