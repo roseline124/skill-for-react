@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const InputBox = ({ innerRef }) => {
 	return (
 		<div>
-			<h1>Input Box</h1>
+			<h3>useRef</h3>
 			<input ref={innerRef} type="text" />
 		</div>
 	)
