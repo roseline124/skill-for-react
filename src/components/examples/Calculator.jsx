@@ -2,7 +2,7 @@ import React from 'react'
 import range from 'lodash/range'
 import chunk from 'lodash/chunk'
 
-import useCalculator, { ActionType } from '../hooks/useCalculator'
+import useCalculator, { ActionType } from '../../hooks/useCalculator'
 
 const numberSet = chunk(range(1, 10), 3)
 
