@@ -14,18 +14,8 @@ const Loading = props => {
 export default Loading
 
 Loading.propTypes = {
-  color: PropTypes.string.isRequired,
-  type: PropTypes.oneOfType([
-    'blank',
-    'balls',
-    'bars',
-    'bubbles',
-    'cubes',
-    'cylon',
-    'spin',
-    'spinningBubbles',
-    'spokes',
-  ]),
+  color: PropTypes.string,
+  type: PropTypes.string,
   className: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

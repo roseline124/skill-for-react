@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React from 'react'
 
 const NotifyScreen = () => {
   const handleClick = () => {
