@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense, useState } from 'react'
 
 const NotifyScreen = () => {
   const handleClick = () => {
@@ -7,9 +7,8 @@ const NotifyScreen = () => {
 
   return (
     <div>
-      <h1>Notify NotifyScreen</h1>
-      <p>For splitting code</p>
-      <button onClick={handleClick}>Notify</button>
+      <h1>NotifyScreen</h1>
+      <button onClick={handleClick}>Hello?</button>
     </div>
   )
 }
