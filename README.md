@@ -1,9 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## .env
+## jsconfig.json
 
-```
-NODE_PATH=src/
+https://github.com/facebook/create-react-app/pull/6656
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "./src"
+  }
+}
 ```
 
 ## Available Scripts

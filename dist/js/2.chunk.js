@@ -1,0 +1,1 @@
+exports.ids=[2],exports.modules={11:function(t,e,n){"use strict";function o(){alert("Hello!")}n.r(e),n.d(e,"default",(function(){return o}))}};

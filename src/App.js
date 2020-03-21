@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import logo from './logo.svg'
 import './App.css'
 
-import Loading from 'components/Loading'
-import 'Loading.css'
+// import Loading from './components/Loading'
+import './Loading.css'
 
 const Container = styled.div`
   margin: 0;
@@ -24,9 +24,12 @@ const Logo = styled.img`
   margin: 0 auto;
 `
 
-const NotifyScreen = loadable(() => import('screens/NotifyScreen'), {
-  fallback: <Loading color="#61DAFB" type="bubbles" className="Loading" />,
-})
+const NotifyScreen = loadable(
+  () => import('./screens/NotifyScreen'),
+  // {
+  //   fallback: <Loading color="#61DAFB" type="bubbles" className="Loading" />,
+  // }
+)
 
 function App() {
   const [loading, setLoading] = useState(true)
