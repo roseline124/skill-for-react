@@ -1,4 +1,5 @@
 import React, { useState, Suspense } from 'react'
+import loadable from '@loadable/component'
 import styled from 'styled-components'
 
 import logo from './logo.svg'
@@ -23,7 +24,9 @@ const Logo = styled.img`
   margin: 0 auto;
 `
 
-const NotifyScreen = React.lazy(() => import('screens/NotifyScreen'))
+const NotifyScreen = loadable(() => import('screens/NotifyScreen'), {
+  fallback: <Loading color="#61DAFB" type="bubbles" className="Loading" />,
+})
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -32,19 +35,19 @@ function App() {
     setLoading(false)
   }
 
+  const handleMouseOver = () => {
+    NotifyScreen.preload()
+  }
+
   return (
     <Container className="App">
       <Logo src={logo} className="App-logo" alt="logo" />
       <p>F12 -> Network -> Slow 3G</p>
-      <button onClick={handleLoading}>Load Hello Button</button>
+      <button onClick={handleLoading} onMouseOver={handleMouseOver}>
+        Load Hello Button
+      </button>
 
-      <Suspense
-        fallback={
-          <Loading color="#61DAFB" type="bubbles" className="Loading" />
-        }
-      >
-        {!loading && <NotifyScreen />}
-      </Suspense>
+      {!loading && <NotifyScreen />}
     </Container>
   )
 }
