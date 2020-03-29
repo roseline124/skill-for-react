@@ -1,27 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+const Koa = require('koa')
+const Router = require('koa-router')
+const bodyParser = require('koa-bodyparser')
 
-import App from './App'
-import './index.css'
-import * as serviceWorker from './serviceWorker'
-import { BrowserRouter } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import rootReducer from './modules'
+const api = require('./api')
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const app = new Koa()
+const router = new Router()
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root'),
-)
+// router 설정
+router.use('/api', api.routes()) // api/* 내의 라우트 적용
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister()
+// router 적용 전에 bodyParser 적용해야 함
+app.use(bodyParser())
+
+// router 적용
+app.use(router.routes()).use(router.allowedMethods())
+
+app.listen(4000, () => {
+  console.log('🔥Listening to http://localhost:4000')
+})
